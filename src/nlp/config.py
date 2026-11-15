@@ -1,6 +1,7 @@
 """config.py.
 
-(EDIT YOUR VERSION OF THIS FILE)
+Author: Brandon Smith
+Date: 2026-11
 
 Purpose
 

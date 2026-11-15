@@ -1,6 +1,7 @@
 """stage04_load.py.
 
-NO EDITS REQUIRED IN THIS FILE (if paths have not changed.)
+Author: Brandon Smith
+Date: 2026-11
 
 Source: DataFrame
 Sink: CSV file

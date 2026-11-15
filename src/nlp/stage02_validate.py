@@ -1,6 +1,7 @@
 """stage02_validate.py.
 
-(EDIT YOUR VERSION OF THIS FILE)
+Author: Brandon Smith
+Date: 2026-11
 
 Source: raw JSON object
 Sink: validated JSON object
