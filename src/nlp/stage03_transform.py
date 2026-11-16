@@ -75,6 +75,23 @@ def run_transform(
         ]
     )
 
+    # Phase 4 modification (Brandon Smith):
+    # title_body_overlap counts how many different title words
+    # also show up somewhere in the body text.
+    # A higher number means the title does a better job of summarizing the post.
+    title_words = pl.col("title").str.to_lowercase().str.extract_all(r"[a-z]+")
+    body_words = pl.col("body").str.to_lowercase().str.extract_all(r"[a-z]+")
+    df = df.with_columns(
+        title_words.list.set_intersection(body_words)
+        .list.len()
+        .alias("title_body_overlap")
+    )
+
+    LOG.info(
+        f"Posts with at least one title word in the body: "
+        f"{(df['title_body_overlap'] > 0).sum()} of {df.height}"
+    )
+
     LOG.info("Transformation complete.")
     LOG.info(f"DataFrame preview:\n{df.head()}")
     LOG.info("Sink: Polars DataFrame created")
